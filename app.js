@@ -133,7 +133,8 @@ function createPhoto(item, chapter, localIndex, sceneVariant, positionInScene) {
   const image = document.createElement('img');
   image.src = item.src;
   image.alt = `${chapter.short} · 回忆照片 ${localIndex + 1}`;
-  image.loading = localIndex < 2 ? 'eager' : 'lazy';
+  image.loading = chapter.id === 'beginning' && localIndex < 12 ? 'eager' : 'lazy';
+  if (chapter.id === 'beginning' && localIndex < 4) image.fetchPriority = 'high';
   image.decoding = 'async';
   button.append(image);
   button.addEventListener('click', () => openLightbox(globalIndex));
