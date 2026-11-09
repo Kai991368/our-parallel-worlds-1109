@@ -40,6 +40,8 @@ const chapterTemplate = document.querySelector('#chapterTemplate');
 const progress = document.querySelector('#readingProgress');
 const proposalVideo = document.querySelector('#proposalVideo');
 const filmOptions = [...document.querySelectorAll('.film-option')];
+const musicDock = document.querySelector('#musicDock');
+const musicDockToggle = document.querySelector('#musicDockToggle');
 const lightbox = document.querySelector('#lightbox');
 const lightboxImage = document.querySelector('#lightboxImage');
 const lightboxChapter = document.querySelector('#lightboxChapter');
@@ -312,6 +314,16 @@ filmOptions.forEach((option) => {
     proposalVideo.load();
     filmOptions.forEach((button) => button.classList.toggle('is-active', button === option));
   });
+});
+
+musicDockToggle.addEventListener('click', () => {
+  const minimized = musicDock.classList.toggle('is-minimized');
+  musicDockToggle.setAttribute('aria-expanded', String(!minimized));
+});
+
+proposalVideo.addEventListener('play', () => {
+  musicDock.classList.remove('is-minimized');
+  musicDockToggle.setAttribute('aria-expanded', 'true');
 });
 
 if (window.STORY_DATA) {

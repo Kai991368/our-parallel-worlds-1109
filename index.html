@@ -9,7 +9,7 @@
     <title>如果我们在不同的世界相遇</title>
     <link rel="icon" href="data:," />
     <link rel="preload" as="image" href="assets/story/gate-snow.webp" />
-    <link rel="stylesheet" href="styles.css?v=7" />
+    <link rel="stylesheet" href="styles.css?v=9" />
   </head>
   <body data-tone="night">
     <div class="reading-progress" aria-hidden="true"><span id="readingProgress"></span></div>
@@ -78,6 +78,23 @@
       </footer>
     </main>
 
+    <aside class="music-dock" id="musicDock" aria-label="背景音乐播放器">
+      <button class="music-dock-toggle" id="musicDockToggle" type="button" aria-expanded="true" aria-controls="musicPlayerFrame">
+        <span class="music-disc" aria-hidden="true">♪</span>
+        <span class="music-title"><small>背景音乐</small><strong>这世界那么多人 · 莫文蔚</strong></span>
+        <span class="music-chevron" aria-hidden="true">⌄</span>
+      </button>
+      <div class="music-frame" id="musicPlayerFrame">
+        <iframe
+          title="QQ音乐：这世界那么多人，莫文蔚现场完整版"
+          src="https://i.y.qq.com/n2/m/outchain/player/index.html?songid=559913645&amp;songtype=0"
+          loading="eager"
+          allow="autoplay; encrypted-media"
+          referrerpolicy="strict-origin-when-cross-origin"
+        ></iframe>
+      </div>
+    </aside>
+
     <dialog class="lightbox" id="lightbox" aria-label="照片查看器">
       <button class="lightbox-close" id="lightboxClose" type="button" aria-label="关闭照片">×</button>
       <button class="lightbox-arrow prev" id="lightboxPrev" type="button" aria-label="上一张">‹</button>
@@ -102,6 +119,6 @@
     </template>
 
     <script src="story-data.js?v=7"></script>
-    <script src="app.js?v=8"></script>
+    <script src="app.js?v=9"></script>
   </body>
 </html>
