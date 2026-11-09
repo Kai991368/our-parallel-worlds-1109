@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#101113" />
+    <meta name="description" content="写给秀宝的一封互动爱情长篇" />
+    <meta name="robots" content="noindex,nofollow,noarchive" />
+    <title>如果我们在不同的世界相遇</title>
+    <link rel="icon" href="data:," />
+    <link rel="preload" as="image" href="assets/story/gate-snow.webp" />
+    <link rel="stylesheet" href="styles.css?v=7" />
+  </head>
+  <body data-tone="night">
+    <div class="reading-progress" aria-hidden="true"><span id="readingProgress"></span></div>
+
+    <section class="gate" id="gate" aria-label="打开情书">
+      <div class="gate-photo" aria-hidden="true">
+        <img src="assets/story/gate-snow.webp" alt="" />
+      </div>
+      <div class="gate-shade"></div>
+      <div class="gate-copy">
+        <p class="eyebrow">给秀宝 · 一封由 225 个瞬间写成的信</p>
+        <h1>如果我们在<br />不同的世界相遇</h1>
+        <p class="gate-intro">我还是想从人群里认出你，<br />然后陪你，把这一生慢慢过完。</p>
+        <button class="hold-button" id="holdButton" type="button" aria-label="按住打开这封信">
+          <span class="hold-label">按住，打开这封信</span>
+          <span class="hold-fill" aria-hidden="true"></span>
+          <span class="hold-ring" aria-hidden="true"></span>
+        </button>
+      </div>
+      <p class="gate-note">请慢一点，这封信很长</p>
+    </section>
+
+    <main class="story" id="story" aria-hidden="true">
+      <header class="story-intro chapter-marker" id="story-intro" data-tone="night">
+        <div class="intro-rail reveal">
+          <span>LOVE ARCHIVE</span>
+          <span>225 PHOTOGRAPHS</span>
+          <span>6 CHAPTERS</span>
+        </div>
+        <div class="intro-copy reveal">
+          <p class="kicker">写在故事开始以前</p>
+          <h2>这些照片不是证明<br />我们去过多少地方。</h2>
+          <p>它们只是替我们记住：在很长一段时间里，我们认真地出现在彼此的生活中。镜头里有隆重的日子，也有随手按下快门的普通一刻。现在把它们放在一起，才发现爱从来没有只发生一次。</p>
+        </div>
+        <div class="scroll-cue" aria-hidden="true"><span></span>向下读</div>
+      </header>
+
+      <nav class="chapter-nav" id="chapterNav" aria-label="故事章节"></nav>
+      <div id="chapters" aria-live="polite"></div>
+
+      <section class="film-chapter chapter-marker" id="film" data-tone="lake">
+        <div class="film-copy reveal">
+          <p class="kicker">一段会动的记忆</p>
+          <h2>照片留住一秒，<br />电影替我们留住那一天。</h2>
+          <p>这里没有重新配上的声音，也没有替过去编写对白。它只是保留了当时真实发生的画面，等我们在很多年以后，再回来一起看。</p>
+        </div>
+        <div class="film-stage reveal">
+          <video id="proposalVideo" controls playsinline preload="metadata" poster="assets/story/engagement-portrait.webp">
+            <source src="assets/story/proposal-teaser.mp4?v=7" type="video/mp4" />
+          </video>
+          <div class="film-controls" role="group" aria-label="选择影片版本">
+            <button class="film-option is-active" type="button" data-src="assets/story/proposal-teaser.mp4?v=7"><span>01</span><strong>94 秒预告</strong></button>
+            <button class="film-option" type="button" data-src="assets/story/proposal-film.mp4?v=7"><span>02</span><strong>完整影片</strong></button>
+          </div>
+        </div>
+      </section>
+
+      <footer class="closing chapter-marker" id="closing" data-tone="night">
+        <div class="closing-photo reveal"><img loading="lazy" src="assets/story/snow-kiss.webp" alt="雪山前的亲吻" /></div>
+        <div class="closing-copy reveal">
+          <p class="kicker">TO BE CONTINUED</p>
+          <h2>我不想许诺<br />每一天都像照片一样漂亮。</h2>
+          <p>我只想在没有镜头的时候，也好好站在你身边。一起吃饭，一起赶路，一起把争执讲完，再一起回家。等我们老一点，再翻开这封信，看看那时的我们，已经把今天写成了多长的以后。</p>
+          <div class="signature"><span>爱你的</span><strong>牛牛</strong></div>
+        </div>
+      </footer>
+    </main>
+
+    <dialog class="lightbox" id="lightbox" aria-label="照片查看器">
+      <button class="lightbox-close" id="lightboxClose" type="button" aria-label="关闭照片">×</button>
+      <button class="lightbox-arrow prev" id="lightboxPrev" type="button" aria-label="上一张">‹</button>
+      <figure>
+        <img id="lightboxImage" alt="" />
+        <figcaption><span id="lightboxChapter"></span><strong id="lightboxCount"></strong></figcaption>
+      </figure>
+      <button class="lightbox-arrow next" id="lightboxNext" type="button" aria-label="下一张">›</button>
+    </dialog>
+
+    <template id="chapterTemplate">
+      <section class="archive-chapter chapter-marker">
+        <header class="chapter-heading reveal">
+          <p class="chapter-number"></p>
+          <div><p class="kicker chapter-kicker"></p><h2 class="chapter-title"></h2></div>
+          <p class="chapter-body"></p>
+        </header>
+        <div class="chapter-divider reveal"><span></span><em></em><span></span></div>
+        <div class="photo-sequence"></div>
+        <footer class="chapter-tail reveal"><span class="chapter-count"></span><p class="chapter-line"></p></footer>
+      </section>
+    </template>
+
+    <script src="story-data.js?v=7"></script>
+    <script src="app.js?v=7"></script>
+  </body>
+</html>
